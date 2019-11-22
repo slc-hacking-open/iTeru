@@ -5,7 +5,7 @@ export interface SideMenuProps {
 }
 
 const SideMenu: FC<SideMenuProps> = ({ locationNames = [] }) => (
-  <div id="sideMenu">
+  <div id="side-menu">
     <div>x</div>
     {locationNames.map((locationName: string) => (
       <div>

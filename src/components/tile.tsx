@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 
+import "./tile.css";
+
 export interface TileProps {
   roomName?: string;
   isUsing?: boolean;
@@ -11,7 +13,7 @@ const Tile: FC<TileProps> = ({
   isUsing = true,
   elapsedMinutes = 0
 }) => (
-  <section>
+  <section className="tile">
     <h1>{roomName}</h1>
     <p>{elapsedMinutes}</p>
     <p>{isUsing}</p>
