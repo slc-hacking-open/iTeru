@@ -1,0 +1,36 @@
+// API Locations
+interface Locations {
+  locations: Array<string>;
+}
+export const fetchLocations = () => {
+  return new Promise((resolve, reject) => {
+    fetch(
+      "https://f4o3plnc4j.execute-api.ap-northeast-1.amazonaws.com/Prod/iterulocationsQ"
+    )
+      .then(response => response.json())
+      .then((json: Locations) => resolve(json.locations))
+      .catch((reason: string) => {
+        reject(reason);
+      });
+  });
+};
+
+// API Rooms
+interface Rooms {
+  rooms: Array<{
+    roomId: number;
+    roomName: string;
+    isUsing: boolean;
+    elapsedMinutes: number;
+  }>;
+}
+export const fetchRooms = (locationId: number) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${locationId}`)
+      .then(response => response.json())
+      .then((json: Rooms) => resolve(json.rooms))
+      .catch((reason: string) => {
+        reject(reason);
+      });
+  });
+};
