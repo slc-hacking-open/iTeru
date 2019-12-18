@@ -12,23 +12,27 @@ const SideMenu: FC<SideMenuProps> = ({
   initMenu = () => {},
   openMenu = () => {},
   closeMenu = () => {}
-}) => (
-  <div id="side-menu">
-    <button type="button" onClick={openMenu}>
-      Open
-    </button>
-    <button type="button" onClick={closeMenu}>
-      Close
-    </button>
-    <button type="button" onClick={initMenu}>
-      INIT
-    </button>
-    {locationNames.map((locationName: string) => (
-      <div>
-        <p>{locationName}</p>
-      </div>
-    ))}
-  </div>
-);
+}) => {
+  initMenu();
+
+  return (
+    <div id="side-menu">
+      <button type="button" onClick={openMenu}>
+        Open
+      </button>
+      <button type="button" onClick={closeMenu}>
+        Close
+      </button>
+      <button type="button" onClick={initMenu}>
+        INIT
+      </button>
+      {locationNames.map((locationName: string) => (
+        <div>
+          <p>{locationName}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default SideMenu;
