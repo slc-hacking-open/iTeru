@@ -1,4 +1,5 @@
 import { Reducer } from "redux";
+import { SideMenuAction, OPEN, CLOSE } from "../actions/side-menu";
 
 export interface UIState {
   isOpeningSideMenu: boolean;
@@ -10,10 +11,27 @@ const initialState: UIState = {
   isMonitorWide: false
 };
 
-const uiReducer: Reducer<UIState> = (
-  state: UIState = initialState
+const uiReducer: Reducer<UIState, SideMenuAction> = (
+  state: UIState = initialState,
+  action: SideMenuAction
 ): UIState => {
-  return state;
+  switch (action.type) {
+    case OPEN:
+      return {
+        ...state,
+        isOpeningSideMenu: true
+      };
+    case CLOSE:
+      return {
+        ...state,
+        isOpeningSideMenu: false
+      };
+    default:
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      // const check: never = action.type;
+
+      return state;
+  }
 };
 
 export default uiReducer;

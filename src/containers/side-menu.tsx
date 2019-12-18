@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 
-import { open, close } from "../actions/side-menu";
+import { initMenu, openMenu, closeMenu } from "../actions/side-menu";
 import { LocationState } from "../reducers/locations-reducer";
 import SideMenu from "../components/side-menu";
 import { RootState } from "../reducer";
@@ -11,19 +12,27 @@ export interface StateProps {
 }
 
 interface DispatchProps {
-  open: () => void;
-  close: () => void;
+  initMenu: () => void;
+  openMenu: () => void;
+  closeMenu: () => void;
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
+  /*
   locationNames: state.locations.locations.map(
     (location: LocationState) => location.locationName
   )
+  */
+
+  locationNames: [state.ui.isOpeningSideMenu ? "OPENING" : "CLOSING"]
 });
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  open: () => dispatch(open()),
-  close: () => dispatch(close())
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<any, any, any>
+): DispatchProps => ({
+  initMenu: () => dispatch(initMenu()),
+  openMenu: () => dispatch(openMenu()),
+  closeMenu: () => dispatch(closeMenu())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
