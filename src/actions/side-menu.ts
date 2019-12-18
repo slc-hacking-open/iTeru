@@ -46,7 +46,6 @@ export const initMenu = () => {
       dispatch(succeedLocations(result));
     } catch (error) {
       dispatch(failedLocations(error));
-      console.log("ERROR");
     }
   };
 };

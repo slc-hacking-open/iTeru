@@ -1,6 +1,9 @@
 // API Locations
 export interface Locations {
-  locations: Array<string>;
+  locations: Array<{
+    locationId: number;
+    locationName: string;
+  }>;
 }
 export const fetchLocations = (): Promise<Locations> => {
   return new Promise((resolve, reject) => {
@@ -24,7 +27,10 @@ export interface Rooms {
 }
 export const fetchRooms = (locationId: number): Promise<Rooms> => {
   return new Promise((resolve, reject) => {
-    fetch(`${locationId}`)
+    // fetch(`${locationId}`)
+    fetch(
+      "https://9k2don95ai.execute-api.ap-northeast-1.amazonaws.com/Prod/iteruRooms"
+    )
       .then(response => response.json())
       .then((json: Rooms) => resolve(json))
       .catch((reason: string) => reject(reason));
