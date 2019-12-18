@@ -1,5 +1,9 @@
 import { Reducer } from "redux";
-import { SideMenuAction, OPEN, CLOSE } from "../actions/side-menu";
+import {
+  SideMenuAction,
+  OPEN_SIDE_MENU,
+  CLOSE_SIDE_MENU
+} from "../actions/side-menu";
 
 export interface UIState {
   isOpeningSideMenu: boolean;
@@ -16,12 +20,12 @@ const uiReducer: Reducer<UIState, SideMenuAction> = (
   action: SideMenuAction
 ): UIState => {
   switch (action.type) {
-    case OPEN:
+    case OPEN_SIDE_MENU:
       return {
         ...state,
         isOpeningSideMenu: true
       };
-    case CLOSE:
+    case CLOSE_SIDE_MENU:
       return {
         ...state,
         isOpeningSideMenu: false

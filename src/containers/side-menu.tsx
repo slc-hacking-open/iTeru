@@ -18,13 +18,9 @@ interface DispatchProps {
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
-  /*
   locationNames: state.locations.locations.map(
     (location: LocationState) => location.locationName
   )
-  */
-
-  locationNames: [state.ui.isOpeningSideMenu ? "OPENING" : "CLOSING"]
 });
 
 const mapDispatchToProps = (

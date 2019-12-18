@@ -1,12 +1,11 @@
 import { Reducer } from "redux";
 
-export interface LocationsState {
-  locations: Array<LocationState>;
-}
-
 export interface LocationState {
   locaitonId: number;
   locationName: string;
+}
+export interface LocationsState {
+  locations: Array<LocationState>;
 }
 
 const initialState: LocationsState = {
