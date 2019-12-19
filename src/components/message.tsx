@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./message.css";
+import "./message.scss";
 
 export interface HeaderProps {
   message?: string;

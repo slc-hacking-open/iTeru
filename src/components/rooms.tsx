@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 
 import { RoomState } from "../reducers/rooms-reducer";
 import Room, { RoomProps } from "./room";
-import "./rooms.css";
+import "./rooms.scss";
 
 export interface RoomsProps {
   rooms?: RoomState[];
@@ -14,10 +14,8 @@ const Rooms: FC<RoomsProps> = ({ rooms = [], getRooms = () => {} }) => {
     getRooms();
   }, []);
 
-  console.log("Rooms: ", rooms);
-
   return (
-    <article className="rooms">
+    <div className="Rooms">
       {rooms.map((room: RoomProps) => {
         return (
           <Room
@@ -28,7 +26,7 @@ const Rooms: FC<RoomsProps> = ({ rooms = [], getRooms = () => {} }) => {
           />
         );
       })}
-    </article>
+    </div>
   );
 };
 

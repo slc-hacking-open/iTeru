@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import "./room.css";
+import "./room.scss";
 
 export interface RoomProps {
   roomId?: number;
@@ -20,12 +20,10 @@ const Room: FC<RoomProps> = ({
   const minutes: number = elapsedMinutes > 0 ? elapsedMinutes % 60 : 0;
 
   return (
-    <section className={`room ${isUsing ? "room-close" : "room-open"}`}>
-      <h1 className="room-roomName">{roomName}</h1>
-      <p className="room-elapsedMinutes">
-        {isUsing ? "" : `${hours}:${minutes}`}
-      </p>
-    </section>
+    <div className={`Room ${isUsing ? "-close" : "-open"}`}>
+      <h1 className="Room-roomName">{roomName}</h1>
+      <p className="Room-elapsedTime">{isUsing ? "" : `${hours}:${minutes}`}</p>
+    </div>
   );
 };
 

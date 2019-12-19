@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { LocationState } from "../reducers/locations-reducer";
+import "./side-menu.scss";
 
 export interface SideMenuProps {
   locations?: LocationState[];
@@ -21,15 +22,15 @@ const SideMenu: FC<SideMenuProps> = ({
 
   return (
     <div className="SideMenu">
-      {locations.map((location: LocationState) => (
-        <ul className="SideMenu-ul" key={location.locationId}>
-          <li className="SideMenu-li">
+      <ul className="SideMenu-ul">
+        {locations.map((location: LocationState) => (
+          <li className="SideMenu-li" key={location.locationId}>
             <a className="SideMenu-location" href={`/${location.locationId}`}>
               {location.locationName}
             </a>
           </li>
-        </ul>
-      ))}
+        ))}
+      </ul>
     </div>
   );
 };

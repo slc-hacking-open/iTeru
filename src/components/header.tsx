@@ -1,16 +1,15 @@
 import React, { FC } from "react";
-import "./header.css";
+import "./header.scss";
 
 export interface HeaderProps {
   showingLocationName?: string;
 }
 
 const Header: FC<HeaderProps> = ({ showingLocationName = "" }) => (
-  <header>
+  <header className="Header">
     <h1>
       iTeru<span>{showingLocationName}</span>
     </h1>
-    <div id="hamburger-menu-button">＝</div>
   </header>
 );
 

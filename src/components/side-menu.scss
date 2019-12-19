@@ -1,0 +1,41 @@
+.SideMenu {
+  background: #ccc;
+  flex-shrink: 0;
+  width: 150px;
+
+  &-ul {
+    list-style: none;
+  }
+
+  &-li {
+    align-items: center;
+    display: flex;
+    font-size: 1.5rem;
+    height: 3.5rem;
+    justify-content: center;
+  }
+
+  &-location {
+    color: #000;
+    cursor: default;
+    position: relative;
+    text-decoration: none;
+
+    &::after {
+      background: #333;
+      bottom: -4px;
+      content: '';
+      height: 1px;
+      left: 0;
+      position: absolute;
+      transform: scale(0, 1);
+      transform-origin: right top;
+      transition: transform 0.3s;
+      width: 100%;
+    }
+
+    &:hover::after {
+      transform: scale(1, 1);
+    }
+  }
+}
