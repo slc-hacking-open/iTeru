@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
 import { ThunkDispatch } from "redux-thunk";
 
 import { initMenu, openMenu, closeMenu } from "../actions/side-menu";
@@ -8,7 +7,7 @@ import SideMenu from "../components/side-menu";
 import { RootState } from "../reducer";
 
 export interface StateProps {
-  locationNames: Array<string>;
+  locations: LocationState[];
 }
 
 interface DispatchProps {
@@ -18,9 +17,7 @@ interface DispatchProps {
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
-  locationNames: state.locations.locations.map(
-    (location: LocationState) => location.locationName
-  )
+  locations: state.locations.locations
 });
 
 const mapDispatchToProps = (

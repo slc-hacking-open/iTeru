@@ -1,35 +1,34 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
+import { LocationState } from "../reducers/locations-reducer";
 
 export interface SideMenuProps {
-  locationNames?: Array<string>;
+  locations?: LocationState[];
   initMenu?: () => void;
   openMenu?: () => void;
   closeMenu?: () => void;
 }
 
 const SideMenu: FC<SideMenuProps> = ({
-  locationNames = [],
+  locations = [],
   initMenu = () => {},
   openMenu = () => {},
   closeMenu = () => {}
 }) => {
-  initMenu();
+  // When state [] is updated, run initMenu(); Only 1 time.
+  useEffect(() => {
+    initMenu();
+  }, []);
 
   return (
-    <div id="side-menu">
-      <button type="button" onClick={openMenu}>
-        Open
-      </button>
-      <button type="button" onClick={closeMenu}>
-        Close
-      </button>
-      <button type="button" onClick={initMenu}>
-        INIT
-      </button>
-      {locationNames.map((locationName: string) => (
-        <div>
-          <p>{locationName}</p>
-        </div>
+    <div className="SideMenu">
+      {locations.map((location: LocationState) => (
+        <ul className="SideMenu-ul" key={location.locaitonId}>
+          <li className="SideMenu-li">
+            <a className="SideMenu-location" href={`/${location.locaitonId}`}>
+              {location.locationName}
+            </a>
+          </li>
+        </ul>
       ))}
     </div>
   );
