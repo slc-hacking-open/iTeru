@@ -1,8 +1,5 @@
 import { Reducer } from "redux";
-
-export interface RoomsState {
-  rooms: Array<RoomState>;
-}
+import { RoomsAction, SUCCEED_ROOMS } from "../actions/rooms";
 
 export interface RoomState {
   roomId: number;
@@ -11,14 +8,27 @@ export interface RoomState {
   elapsedMinutes: number;
 }
 
+export interface RoomsState {
+  rooms: RoomState[];
+}
+
 const initialState: RoomsState = {
   rooms: []
 };
 
-const roomsReducer: Reducer<RoomsState> = (
-  state: RoomsState = initialState
+const roomsReducer: Reducer<RoomsState, RoomsAction> = (
+  state: RoomsState = initialState,
+  action: RoomsAction
 ): RoomsState => {
-  return state;
+  switch (action.type) {
+    case SUCCEED_ROOMS:
+      return {
+        ...state,
+        rooms: action.payload.result.rooms
+      };
+    default:
+      return state;
+  }
 };
 
 export default roomsReducer;

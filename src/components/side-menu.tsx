@@ -22,9 +22,9 @@ const SideMenu: FC<SideMenuProps> = ({
   return (
     <div className="SideMenu">
       {locations.map((location: LocationState) => (
-        <ul className="SideMenu-ul" key={location.locaitonId}>
+        <ul className="SideMenu-ul" key={location.locationId}>
           <li className="SideMenu-li">
-            <a className="SideMenu-location" href={`/${location.locaitonId}`}>
+            <a className="SideMenu-location" href={`/${location.locationId}`}>
               {location.locationName}
             </a>
           </li>

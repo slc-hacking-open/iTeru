@@ -2,7 +2,7 @@ import { Reducer } from "redux";
 import { SideMenuAction, SUCCEED_LOCATIONS } from "../actions/side-menu";
 
 export interface LocationState {
-  locaitonId: number;
+  locationId: number;
   locationName: string;
 }
 export interface LocationsState {
@@ -21,16 +21,7 @@ const locationsReducer: Reducer<LocationsState, SideMenuAction> = (
     case SUCCEED_LOCATIONS:
       return {
         ...state,
-        locations: action.payload.result.locations.map(item => {
-          // LocationState is Not equals to Array<{locationId, locationName}>
-          // 無駄なmapな気がするけど、APIの結果とStateが常に一致するとは限らないのでこれでいいかj
-          const location: LocationState = {
-            locaitonId: item.locationId,
-            locationName: item.locationName
-          };
-
-          return location;
-        })
+        locations: action.payload.result.locations
       };
     default:
       return state;

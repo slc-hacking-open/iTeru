@@ -29,7 +29,7 @@ export const getRooms = () => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(fetchingRooms());
-      const result = await fetchRooms(0);
+      const result = await fetchRooms(1);
       console.log(result);
       dispatch(succeedRooms(result));
     } catch (error) {
