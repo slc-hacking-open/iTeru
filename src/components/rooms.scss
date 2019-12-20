@@ -1,6 +1,6 @@
 .Rooms {
   display: flex;
-  flex-shrink: 2;
   flex-wrap: wrap;
-  width: auto;
+  width: -webkit-calc(100% - 150px);
+  width: calc(100% - 150px);
 }

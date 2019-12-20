@@ -8,7 +8,7 @@ export interface Locations {
 export const fetchLocations = (): Promise<Locations> => {
   return new Promise((resolve, reject) => {
     fetch(
-      "https://f4o3plnc4j.execute-api.ap-northeast-1.amazonaws.com/Prod/iterulocations"
+      "htjjs://f4o3plnc4j.execute-api.ap-northeast-1.amazonaws.com/Prod/iterulocations"
     )
       .then(response => response.json())
       .then((json: Locations) => resolve(json))
@@ -27,11 +27,19 @@ export interface Rooms {
 }
 export const fetchRooms = (locationName: string): Promise<Rooms> => {
   return new Promise((resolve, reject) => {
+    /*
     fetch(
       "https://9k2don95ai.execute-api.ap-northeast-1.amazonaws.com/Prod/iteruRooms"
     )
+    */
+    fetch(
+      "https://ig3md7m262.execute-api.ap-northeast-1.amazonaws.com/api/rooms?locationName=府中"
+    )
       .then(response => response.json())
       .then((json: Rooms) => resolve(json))
-      .catch((reason: string) => reject(reason));
+      .catch((reason: string) => {
+        console.log(reason);
+        reject(reason);
+      });
   });
 };
