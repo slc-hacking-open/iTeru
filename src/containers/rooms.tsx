@@ -8,7 +8,6 @@ import { RootState } from "../reducer";
 
 export interface StateProps {
   rooms: RoomState[];
-  locationName: string;
 }
 
 interface DispatchProps {
@@ -16,8 +15,7 @@ interface DispatchProps {
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
-  rooms: state.rooms.rooms,
-  locationName: state.rooms.locationName
+  rooms: state.rooms.rooms
 });
 
 const mapDispatchToProps = (

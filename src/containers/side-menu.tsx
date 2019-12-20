@@ -11,6 +11,7 @@ interface DispatchProps {
   closeMenu: () => void;
 }
 
+// eslint-disable-next-line
 const mapStateToProps = (state: RootState): any => ({});
 
 const mapDispatchToProps = (

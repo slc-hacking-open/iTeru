@@ -30,7 +30,6 @@ export const getRooms = (locationName: string) => {
     try {
       dispatch(fetchingRooms());
       const result = await fetchRooms(locationName);
-      console.log(result);
       dispatch(succeedRooms(result));
     } catch (error) {
       dispatch(failedRooms(error));

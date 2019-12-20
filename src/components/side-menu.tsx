@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import "./side-menu.scss";
 
@@ -10,9 +10,11 @@ export interface SideMenuProps {
 }
 
 const SideMenu: FC<SideMenuProps> = ({
-  locations = ["新宿", "清澄", "新大阪", "南港"],
-  openMenu = () => {},
-  closeMenu = () => {}
+  // TODO: マスターにしなきゃ
+  locations = ["新宿", "清澄", "新大阪", "南港"]
+  // TODO: スマホ版のみこれが必要や
+  // openMenu = () => {},
+  // closeMenu = () => {}
 }) => {
   return (
     <div className="SideMenu">
