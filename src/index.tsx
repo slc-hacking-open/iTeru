@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
@@ -13,9 +14,17 @@ import "./index.css";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <Route path="/新宿" exact component={App} />
+      <Route path="/清澄" exact component={App} />
+      <Route path="/新大阪" exact component={App} />
+      <Route path="/南港" exact component={App} />
+      <Route exact>
+        <Redirect to="/新宿" />
+      </Route>
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

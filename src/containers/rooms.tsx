@@ -11,7 +11,7 @@ export interface StateProps {
 }
 
 interface DispatchProps {
-  getRooms: () => void;
+  getRooms: (locationName: string) => void;
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
@@ -19,9 +19,10 @@ const mapStateToProps = (state: RootState): StateProps => ({
 });
 
 const mapDispatchToProps = (
+  // eslint-disable-next-line
   dispatch: ThunkDispatch<any, any, any>
 ): DispatchProps => ({
-  getRooms: () => dispatch(getRooms())
+  getRooms: locationName => dispatch(getRooms(locationName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rooms);

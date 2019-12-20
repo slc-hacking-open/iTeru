@@ -2,13 +2,8 @@ import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 
 import { initMenu, openMenu, closeMenu } from "../actions/side-menu";
-import { LocationState } from "../reducers/locations-reducer";
 import SideMenu from "../components/side-menu";
 import { RootState } from "../reducer";
-
-export interface StateProps {
-  locations: LocationState[];
-}
 
 interface DispatchProps {
   initMenu: () => void;
@@ -16,11 +11,11 @@ interface DispatchProps {
   closeMenu: () => void;
 }
 
-const mapStateToProps = (state: RootState): StateProps => ({
-  locations: state.locations.locations
-});
+// eslint-disable-next-line
+const mapStateToProps = (state: RootState): any => ({});
 
 const mapDispatchToProps = (
+  // eslint-disable-next-line
   dispatch: ThunkDispatch<any, any, any>
 ): DispatchProps => ({
   initMenu: () => dispatch(initMenu()),

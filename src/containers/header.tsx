@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
 
 import Header from "../components/header";
 import { RootState } from "../reducer";
@@ -15,11 +14,5 @@ interface DispatchProps {
 const mapStateToProps = (state: RootState): StateProps => ({
   showingLocationName: state.app.showingLocationName
 });
-
-/*
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  function: () => dispatch(function())
-});
-*/
 
 export default connect(mapStateToProps)(Header);

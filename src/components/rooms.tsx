@@ -6,12 +6,13 @@ import "./rooms.scss";
 
 export interface RoomsProps {
   rooms?: RoomState[];
-  getRooms?: () => void;
+  getRooms?: (locationName: string) => void;
 }
 
 const Rooms: FC<RoomsProps> = ({ rooms = [], getRooms = () => {} }) => {
   useEffect(() => {
-    getRooms();
+    const path = decodeURI(window.location.pathname.replace("/", ""));
+    getRooms(path);
   }, []);
 
   return (
