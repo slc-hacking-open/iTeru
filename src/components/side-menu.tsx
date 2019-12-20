@@ -1,33 +1,27 @@
 import React, { FC, useEffect } from "react";
-import { LocationState } from "../reducers/locations-reducer";
+import { Link } from "react-router-dom";
 import "./side-menu.scss";
 
 export interface SideMenuProps {
-  locations?: LocationState[];
+  locations?: string[];
   initMenu?: () => void;
   openMenu?: () => void;
   closeMenu?: () => void;
 }
 
 const SideMenu: FC<SideMenuProps> = ({
-  locations = [],
-  initMenu = () => {},
+  locations = ["新宿", "清澄", "新大阪", "南港"],
   openMenu = () => {},
   closeMenu = () => {}
 }) => {
-  // When state [] is updated, run initMenu(); Only 1 time.
-  useEffect(() => {
-    initMenu();
-  }, []);
-
   return (
     <div className="SideMenu">
       <ul className="SideMenu-ul">
-        {locations.map((location: LocationState) => (
-          <li className="SideMenu-li" key={location.locationId}>
-            <a className="SideMenu-location" href={`/${location.locationId}`}>
-              {location.locationName}
-            </a>
+        {locations.map((locationName: string) => (
+          <li className="SideMenu-li" key={locationName}>
+            <Link className="SideMenu-location" to={`/${locationName}`}>
+              {locationName}
+            </Link>
           </li>
         ))}
       </ul>

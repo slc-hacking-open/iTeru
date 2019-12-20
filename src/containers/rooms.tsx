@@ -8,20 +8,22 @@ import { RootState } from "../reducer";
 
 export interface StateProps {
   rooms: RoomState[];
+  locationName: string;
 }
 
 interface DispatchProps {
-  getRooms: () => void;
+  getRooms: (locationName: string) => void;
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
-  rooms: state.rooms.rooms
+  rooms: state.rooms.rooms,
+  locationName: state.rooms.locationName
 });
 
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<any, any, any>
 ): DispatchProps => ({
-  getRooms: () => dispatch(getRooms())
+  getRooms: locationName => dispatch(getRooms(locationName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rooms);

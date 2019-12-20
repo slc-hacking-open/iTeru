@@ -25,11 +25,11 @@ export const failedRooms = (error: Error) => ({
   error: true
 });
 
-export const getRooms = () => {
+export const getRooms = (locationName: string) => {
   return async (dispatch: Dispatch) => {
     try {
       dispatch(fetchingRooms());
-      const result = await fetchRooms(1);
+      const result = await fetchRooms(locationName);
       console.log(result);
       dispatch(succeedRooms(result));
     } catch (error) {

@@ -25,9 +25,10 @@ export interface Rooms {
     elapsedMinutes: number;
   }>;
 }
-export const fetchRooms = (locationId: number): Promise<Rooms> => {
+export const fetchRooms = (locationName: string): Promise<Rooms> => {
   return new Promise((resolve, reject) => {
     // fetch(`${locationId}`)
+    console.log(`fetchRooms(${locationName})`);
     fetch(
       "https://9k2don95ai.execute-api.ap-northeast-1.amazonaws.com/Prod/iteruRooms"
     )
