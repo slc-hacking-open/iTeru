@@ -16,15 +16,12 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <Route exact path="/">
-        <Redirect to="/新宿" />
-      </Route>
       <Route path="/新宿" exact component={App} />
       <Route path="/清澄" exact component={App} />
       <Route path="/新大阪" exact component={App} />
       <Route path="/南港" exact component={App} />
       <Route exact>
-        <Redirect to="/" />
+        <Redirect to="/新宿" />
       </Route>
     </Provider>
   </BrowserRouter>,
