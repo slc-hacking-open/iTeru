@@ -15,6 +15,7 @@ interface DispatchProps {
 const mapStateToProps = (state: RootState): any => ({});
 
 const mapDispatchToProps = (
+  // eslint-disable-next-line
   dispatch: ThunkDispatch<any, any, any>
 ): DispatchProps => ({
   initMenu: () => dispatch(initMenu()),

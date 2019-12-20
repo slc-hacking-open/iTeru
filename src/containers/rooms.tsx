@@ -19,6 +19,7 @@ const mapStateToProps = (state: RootState): StateProps => ({
 });
 
 const mapDispatchToProps = (
+  // eslint-disable-next-line
   dispatch: ThunkDispatch<any, any, any>
 ): DispatchProps => ({
   getRooms: locationName => dispatch(getRooms(locationName))
