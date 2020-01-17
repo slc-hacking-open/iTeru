@@ -1,3 +1,5 @@
+import { RoomState } from "../constants";
+
 // API Locations
 export interface Locations {
   locations: Array<{
@@ -17,26 +19,39 @@ export const fetchLocations = (): Promise<Locations> => {
 };
 
 // API Rooms
-export interface Rooms {
-  rooms: Array<{
-    roomId: number;
-    roomName: string;
-    isUsing: boolean;
-    elapsedMinutes: number;
-  }>;
+interface APIRoom {
+  roomName: string;
+  isUsing: boolean;
+  timestump: string;
 }
-export const fetchRooms = (locationName: string): Promise<Rooms> => {
+
+const translateAPIRoom = (apiResult: APIRoom[]): RoomState[] => {
+  const rooms: RoomState[] = [];
+
+  apiResult.map(item => {
+    rooms.push({
+      roomId: item.roomName,
+      roomName: item.roomName,
+      isUsing: item.isUsing,
+      elapsedMinutes: 10
+    });
+
+    return item;
+  });
+
+  return rooms;
+};
+
+export const fetchRooms = (locationName: string): Promise<RoomState[]> => {
   return new Promise((resolve, reject) => {
-    /*
     fetch(
-      "https://9k2don95ai.execute-api.ap-northeast-1.amazonaws.com/Prod/iteruRooms"
-    )
-    */
-    fetch(
-      "https://ig3md7m262.execute-api.ap-northeast-1.amazonaws.com/api/rooms?locationName=府中"
+      "https://ig3md7m262.execute-api.ap-northeast-1.amazonaws.com/rooms/府中/"
     )
       .then(response => response.json())
-      .then((json: Rooms) => resolve(json))
+      .then((json: APIRoom[]) => {
+        console.log(json);
+        resolve(translateAPIRoom(json));
+      })
       .catch((reason: string) => {
         console.log(reason);
         reject(reason);

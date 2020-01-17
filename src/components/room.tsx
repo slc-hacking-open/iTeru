@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import "./room.scss";
 
 export interface RoomProps {
-  roomId?: number;
+  roomId?: string;
   roomName?: string;
   isUsing?: boolean;
   elapsedMinutes?: number;

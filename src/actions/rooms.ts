@@ -1,5 +1,6 @@
 import { Dispatch } from "redux";
-import { fetchRooms, Rooms } from "../modules/api";
+import { fetchRooms } from "../modules/api";
+import { RoomState } from "../constants";
 
 // async actions
 export const FETCHING_ROOMS = "FETCHING_ROOMS";
@@ -10,10 +11,10 @@ export const fetchingRooms = () => ({
   type: FETCHING_ROOMS as typeof FETCHING_ROOMS
 });
 
-export const succeedRooms = (result: Rooms) => ({
+export const succeedRooms = (result: RoomState[]) => ({
   type: SUCCEED_ROOMS as typeof SUCCEED_ROOMS,
   payload: {
-    result
+    rooms: result
   }
 });
 

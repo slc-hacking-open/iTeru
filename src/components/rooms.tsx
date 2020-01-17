@@ -1,11 +1,15 @@
 import React, { FC, useEffect } from "react";
 
-import { RoomState } from "../reducers/rooms-reducer";
 import Room, { RoomProps } from "./room";
 import "./rooms.scss";
 
 export interface RoomsProps {
-  rooms?: RoomState[];
+  rooms?: {
+    roomId?: string;
+    roomName?: string;
+    isUsing?: boolean;
+    elapsedMinutes?: number;
+  }[];
   getRooms?: (locationName: string) => void;
 }
 

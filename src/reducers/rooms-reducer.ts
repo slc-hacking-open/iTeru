@@ -1,12 +1,6 @@
 import { Reducer } from "redux";
 import { RoomsAction, SUCCEED_ROOMS } from "../actions/rooms";
-
-export interface RoomState {
-  roomId: number;
-  roomName: string;
-  isUsing: boolean;
-  elapsedMinutes: number;
-}
+import { RoomState } from "../constants";
 
 export interface RoomsState {
   rooms: RoomState[];
@@ -24,7 +18,7 @@ const roomsReducer: Reducer<RoomsState, RoomsAction> = (
     case SUCCEED_ROOMS:
       return {
         ...state,
-        rooms: action.payload.result.rooms
+        rooms: action.payload.rooms
       };
     default:
       return state;

@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import { ThunkDispatch } from "redux-thunk";
 
 import { getRooms } from "../actions/rooms";
-import { RoomState } from "../reducers/rooms-reducer";
 import Rooms from "../components/rooms";
 import { RootState } from "../reducer";
+import { RoomState } from "../constants";
 
 export interface StateProps {
   rooms: RoomState[];
