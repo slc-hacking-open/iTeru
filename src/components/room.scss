@@ -10,7 +10,7 @@
   }
 
   &.-close {
-    background: #e74c3c;
+    background: #bdc3d7;
   }
 
   &-roomName {
@@ -20,5 +20,12 @@
 
   &-elapsedTime {
     font-size: 2rem;
+  }
+
+  &-icon {
+    height: 96px;
+    margin-left: 90px;
+    margin-top: 32px;
+    width: 96px;
   }
 }

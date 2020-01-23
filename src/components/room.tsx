@@ -22,7 +22,14 @@ const Room: FC<RoomProps> = ({
   return (
     <div className={`Room ${isUsing ? "-close" : "-open"}`}>
       <h1 className="Room-roomName">{roomName}</h1>
-      <p className="Room-elapsedTime">{isUsing ? "" : `${hours}:${minutes}`}</p>
+      <p className="Room-elapsedTime">
+        {isUsing ? "　" : `${hours}:${minutes}`}
+      </p>
+      <img
+        className="Room-icon"
+        alt="開閉"
+        src={isUsing ? "/close_128.svg" : "/open_128.svg"}
+      />
     </div>
   );
 };

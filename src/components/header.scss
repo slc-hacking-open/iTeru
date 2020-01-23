@@ -1,9 +1,11 @@
 .Header {
-  background-color: #95a5a6;
+  background-color: #34495e;
+  box-sizing: border-box;
+  color: #fff;
   cursor: default;
   display: flex;
   font-size: 1rem;
   justify-content: space-between;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem;
   width: 100%;
 }

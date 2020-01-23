@@ -4,17 +4,12 @@ import "./side-menu.scss";
 
 export interface SideMenuProps {
   locations?: string[];
-  initMenu?: () => void;
-  openMenu?: () => void;
-  closeMenu?: () => void;
+  isOpen?: boolean;
 }
 
 const SideMenu: FC<SideMenuProps> = ({
   // TODO: マスターにしなきゃ
   locations = ["新宿", "清澄", "新大阪", "南港"]
-  // TODO: スマホ版のみこれが必要や
-  // openMenu = () => {},
-  // closeMenu = () => {}
 }) => {
   return (
     <div className="SideMenu">
