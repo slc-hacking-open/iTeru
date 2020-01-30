@@ -4,6 +4,7 @@ import Header from "./containers/header";
 import SideMenu from "./containers/side-menu";
 import Rooms from "./containers/rooms";
 import Message from "./containers/message";
+import Overlay from "./containers/overlay";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Rooms />
         <SideMenu />
       </div>
+      <Overlay />
     </div>
   );
 };
