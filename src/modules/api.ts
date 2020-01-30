@@ -1,23 +1,5 @@
 import { RoomState } from "../constants";
 
-// API Locations
-export interface Locations {
-  locations: Array<{
-    locationId: number;
-    locationName: string;
-  }>;
-}
-export const fetchLocations = (): Promise<Locations> => {
-  return new Promise((resolve, reject) => {
-    fetch(
-      "htjjs://f4o3plnc4j.execute-api.ap-northeast-1.amazonaws.com/Prod/iterulocations"
-    )
-      .then(response => response.json())
-      .then((json: Locations) => resolve(json))
-      .catch((reason: string) => reject(reason));
-  });
-};
-
 // API Rooms
 interface APIRoom {
   roomName: string;
