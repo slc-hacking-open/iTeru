@@ -1,3 +1,5 @@
+@import 'constants.scss';
+
 .Header {
   background-color: #34495e;
   box-sizing: border-box;
@@ -5,6 +7,7 @@
   cursor: default;
   display: flex;
   font-size: 1rem;
+  height: $header-height;
   justify-content: space-between;
   padding: 1rem;
   width: 100%;

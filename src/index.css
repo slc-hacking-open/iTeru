@@ -24,4 +24,7 @@ code {
 
 .Main {
   display: flex;
+  overflow-x: hidden;
+  position: relative;
+  width: 100vw;
 }

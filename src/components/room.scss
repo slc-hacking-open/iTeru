@@ -1,8 +1,12 @@
 .Room {
+  box-sizing: border-box;
   display: block;
   font-size: 1.8em;
   height: 200px;
   margin: 20px;
+  padding: 10px;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
   width: 200px;
 
   &.-open {
@@ -11,6 +15,16 @@
 
   &.-close {
     background: #bdc3d7;
+  }
+
+  &.-hide {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  &.-show {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   &-roomName {

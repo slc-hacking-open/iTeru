@@ -1,15 +1,19 @@
+@import 'constants.scss';
+
+$sidemenu-width: 150px;
+
 .SideMenu {
   background: #34495e;
-  height: 99vh;
+  height: calc(100vh - #{$header-height});
   position: absolute;
   right: 0;
   -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
-  width: 150px;
+  width: $sidemenu-width;
   z-index: 100;
 
   &.-close {
-    right: -150px;
+    right: (-$sidemenu-width);
   }
 
   &-ul {
