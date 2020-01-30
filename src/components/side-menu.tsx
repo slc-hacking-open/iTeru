@@ -9,7 +9,8 @@ export interface SideMenuProps {
 
 const SideMenu: FC<SideMenuProps> = ({
   // TODO: マスターにしなきゃ
-  locations = ["新宿", "清澄", "新大阪", "南港"]
+  locations = ["新宿", "清澄", "新大阪", "南港"],
+  isOpen = false
 }) => {
   return (
     <div className="SideMenu">
@@ -17,7 +18,7 @@ const SideMenu: FC<SideMenuProps> = ({
         {locations.map((locationName: string) => (
           <li className="SideMenu-li" key={locationName}>
             <Link className="SideMenu-location" to={`/${locationName}`}>
-              {locationName}
+              {`${locationName} ${isOpen}`}
             </Link>
           </li>
         ))}
