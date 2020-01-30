@@ -40,8 +40,10 @@ const Room: FC<RoomProps> = ({
         isShow ? "-show" : "-hide"
       }`}
     >
-      <h1 className="Room-roomName">{roomName}</h1>
-      <p className="Room-elapsedTime">{elapsedTimeString}</p>
+      <div className="Room-leftSide">
+        <h1 className="Room-roomName">{roomName}</h1>
+        <p className="Room-elapsedTime">{elapsedTimeString}</p>
+      </div>
       <img
         className="Room-icon"
         alt="開閉"
