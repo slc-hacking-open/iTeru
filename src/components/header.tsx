@@ -1,39 +1,32 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./header.scss";
 import "./hamburger.css";
 
 export interface HeaderProps {
-  showingLocationName?: string;
+  isOpeningSideMenu?: boolean;
   openMenu?: () => void;
   closeMenu?: () => void;
 }
 
 const Header: FC<HeaderProps> = ({
-  showingLocationName = "",
+  isOpeningSideMenu = false,
   openMenu = () => {},
   closeMenu = () => {}
-}) => {
-  const [isActive, setIsActive] = useState(false);
-
-  return (
-    <header className="Header">
-      <h1>
-        iTeru<span>{showingLocationName}</span>
-      </h1>
-      <div
-        className={`menu-trigger ${isActive ? "active" : ""}`}
-        onClick={() => {
-          if (isActive) closeMenu();
-          else openMenu();
-          setIsActive(!isActive);
-        }}
-      >
-        <span />
-        <span />
-        <span />
-      </div>
-    </header>
-  );
-};
+}) => (
+  <header className="Header">
+    <h1>iTeru</h1>
+    <div
+      className={`menu-trigger ${isOpeningSideMenu ? "active" : ""}`}
+      onClick={() => {
+        if (isOpeningSideMenu) closeMenu();
+        else openMenu();
+      }}
+    >
+      <span />
+      <span />
+      <span />
+    </div>
+  </header>
+);
 
 export default Header;

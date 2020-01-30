@@ -18,7 +18,7 @@ const SideMenu: FC<SideMenuProps> = ({
         {locations.map((locationName: string) => (
           <li className="SideMenu-li" key={locationName}>
             <Link className="SideMenu-location" to={`/${locationName}`}>
-              {`${locationName} ${isOpen}`}
+              {locationName}
             </Link>
           </li>
         ))}

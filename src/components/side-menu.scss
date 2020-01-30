@@ -1,10 +1,15 @@
 .SideMenu {
   background: #34495e;
   height: 99vh;
+  position: absolute;
+  right: 0;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
   width: 150px;
+  z-index: 100;
 
   &.-close {
-    width: 0;
+    right: -150px;
   }
 
   &-ul {

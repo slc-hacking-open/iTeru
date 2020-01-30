@@ -5,7 +5,7 @@ import { SideMenuAction, openMenu, closeMenu } from "../actions/side-menu";
 import { RootState } from "../reducer";
 
 export interface StateProps {
-  showingLocationName: string;
+  isOpeningSideMenu: boolean;
 }
 
 interface DispatchProps {
@@ -14,7 +14,7 @@ interface DispatchProps {
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
-  showingLocationName: state.ui.isOpeningSideMenu.toString()
+  isOpeningSideMenu: state.ui.isOpeningSideMenu
 });
 
 const mapDispatchToProps = (
