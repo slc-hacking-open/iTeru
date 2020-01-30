@@ -17,9 +17,12 @@ const SideMenu: FC<SideMenuProps> = ({
       <ul className="SideMenu-ul">
         {locations.map((locationName: string) => (
           <li className="SideMenu-li" key={locationName}>
+            {/* TODO: S3バケットホスティングではクライアントサイドルーティングできないのでとりま消す
             <Link className="SideMenu-location" to={`/${locationName}`}>
               {locationName}
             </Link>
+            */}
+            <p className="SideMenu-location">{locationName}</p>
           </li>
         ))}
       </ul>

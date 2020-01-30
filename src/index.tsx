@@ -20,9 +20,7 @@ ReactDOM.render(
       <Route path="/清澄" exact component={App} />
       <Route path="/新大阪" exact component={App} />
       <Route path="/南港" exact component={App} />
-      <Route exact>
-        <Redirect to="/新宿" />
-      </Route>
+      <Route exact component={App} />
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")
