@@ -13,7 +13,7 @@ const SideMenu: FC<SideMenuProps> = ({
   isOpen = false
 }) => {
   return (
-    <div className="SideMenu">
+    <div className={`SideMenu ${isOpen ? "" : "-close"}`}>
       <ul className="SideMenu-ul">
         {locations.map((locationName: string) => (
           <li className="SideMenu-li" key={locationName}>

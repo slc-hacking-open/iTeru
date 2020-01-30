@@ -3,6 +3,10 @@
   height: 99vh;
   width: 150px;
 
+  &.-close {
+    width: 0;
+  }
+
   &-ul {
     list-style: none;
   }

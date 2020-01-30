@@ -1,21 +1,24 @@
+import { Dispatch } from "react";
 import { connect } from "react-redux";
-import { ThunkDispatch } from "redux-thunk";
-
-import { openMenu, closeMenu } from "../actions/side-menu";
+import { SideMenuAction, openMenu, closeMenu } from "../actions/side-menu";
 import SideMenu from "../components/side-menu";
 import { RootState } from "../reducer";
+
+interface StateProps {
+  isOpen: boolean;
+}
 
 interface DispatchProps {
   openMenu: () => void;
   closeMenu: () => void;
 }
 
-// eslint-disable-next-line
-const mapStateToProps = (state: RootState): any => ({});
+const mapStateToProps = (state: RootState): StateProps => ({
+  isOpen: state.ui.isOpeningSideMenu
+});
 
 const mapDispatchToProps = (
-  // eslint-disable-next-line
-  dispatch: ThunkDispatch<any, any, any>
+  dispatch: Dispatch<SideMenuAction>
 ): DispatchProps => ({
   openMenu: () => dispatch(openMenu()),
   closeMenu: () => dispatch(closeMenu())

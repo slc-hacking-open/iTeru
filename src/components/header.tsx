@@ -4,9 +4,15 @@ import "./hamburger.css";
 
 export interface HeaderProps {
   showingLocationName?: string;
+  openMenu?: () => void;
+  closeMenu?: () => void;
 }
 
-const Header: FC<HeaderProps> = ({ showingLocationName = "" }) => {
+const Header: FC<HeaderProps> = ({
+  showingLocationName = "",
+  openMenu = () => {},
+  closeMenu = () => {}
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -17,6 +23,8 @@ const Header: FC<HeaderProps> = ({ showingLocationName = "" }) => {
       <div
         className={`menu-trigger ${isActive ? "active" : ""}`}
         onClick={() => {
+          if (isActive) closeMenu();
+          else openMenu();
           setIsActive(!isActive);
         }}
       >
