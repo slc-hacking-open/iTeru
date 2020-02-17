@@ -10,10 +10,15 @@ export interface RoomsProps {
     isUsing?: boolean;
     elapsedMinutes?: number;
   }[];
+  isFetching?: boolean;
   getRooms?: (locationName: string) => void;
 }
 
-const Rooms: FC<RoomsProps> = ({ rooms = [], getRooms = () => {} }) => {
+const Rooms: FC<RoomsProps> = ({
+  rooms = [],
+  isFetching = false,
+  getRooms = () => {}
+}) => {
   useEffect(() => {
     const path = decodeURI(window.location.pathname.replace("/", ""));
     getRooms(path);
@@ -29,6 +34,11 @@ const Rooms: FC<RoomsProps> = ({ rooms = [], getRooms = () => {} }) => {
 
   return (
     <div className="Rooms">
+      <img
+        className={`Rooms-loading ${isFetching ? "-show" : "-hidden"}`}
+        src="/loading.gif"
+        alt="Now Loading"
+      />
       {sorted.map((room: RoomProps) => {
         return (
           <Room

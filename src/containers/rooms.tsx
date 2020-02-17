@@ -8,6 +8,7 @@ import { RoomState } from "../constants";
 
 export interface StateProps {
   rooms: RoomState[];
+  isFetching: boolean;
 }
 
 interface DispatchProps {
@@ -15,7 +16,8 @@ interface DispatchProps {
 }
 
 const mapStateToProps = (state: RootState): StateProps => ({
-  rooms: state.rooms.rooms
+  rooms: state.rooms.rooms,
+  isFetching: state.rooms.isFetching
 });
 
 const mapDispatchToProps = (
