@@ -14,15 +14,9 @@ import "./index.css";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <Route path="/新宿" exact component={App} />
-      <Route path="/清澄" exact component={App} />
-      <Route path="/新大阪" exact component={App} />
-      <Route path="/南港" exact component={App} />
-      <Route exact component={App} />
-    </Provider>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
 
