@@ -19,9 +19,17 @@ const Rooms: FC<RoomsProps> = ({ rooms = [], getRooms = () => {} }) => {
     getRooms(path);
   }, []);
 
+  // 使用中の部屋は下に表示する
+  const sorted = rooms.slice().sort((a, b) => {
+    if (a.isUsing && !b.isUsing) return 1;
+    if (!a.isUsing && b.isUsing) return -1;
+
+    return 0;
+  });
+
   return (
     <div className="Rooms">
-      {rooms.map((room: RoomProps) => {
+      {sorted.map((room: RoomProps) => {
         return (
           <Room
             key={room.roomId}
